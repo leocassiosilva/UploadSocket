@@ -1,4 +1,4 @@
-package socketaqruivos.servidor;
+package socketaqruivos;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -15,11 +15,13 @@ public class Servidor {
     public static void main(String[] args) {
 
         try {
-            ServerSocket serverSocket;
+            ServerSocket servidor = new ServerSocket(5555);
             Socket socket;
-            serverSocket = new ServerSocket(5555);
-            System.out.println("Servidor on!");
 
+            System.out.println("Servidor on!");
+            Socket conexao = servidor.accept();
+
+            System.out.println("Conexão efetuada " + conexao.getInetAddress().getHostAddress());
             
         } catch (IOException ex) {
             Logger.getLogger(Servidor.class.getName()).log(Level.SEVERE, null, ex);
